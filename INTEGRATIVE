@@ -1,0 +1,70 @@
+import pyaudio
+import pyttsx3
+import speech_recognition as speech
+
+
+def talk(text):
+
+engine = pyttsx3.init()
+p = pyaudio.PyAudio()
+Myengine.setProperty('rate', 150)
+engine.say(text)
+engine.runandWait()
+
+listener = speech.Recognizer()
+
+
+def take_command():
+command = ""
+
+
+try:
+with speech.Microphone as source:
+print("Listening...") 
+voice = listener.listen(source)
+command = listener.recognize_google(voice)
+command = command.lower()
+print(command)
+
+if 'Jacob' in command:
+command = command.replace('Cassandra', '')
+print(command)
+if 'Name' in command: # What is your name?
+talk("my Name is Jacob computer version 2.0")
+print(command)
+
+if 'How' in command:	# How are you, Jacob?
+talk("I'm fine, thank you!")
+print(command)
+
+if 'What' in command: # Jacob, what can you do?
+talk("I can do a lot of things.")
+print(command)
+
+if 'things' in command: # things that can you do, Jacob?
+talk("As of now, my program is limited. "
+"Like what we do now, we can only talk limited."
+"But when you make a program that is more high tech. "
+"It is really possible that I can do all.")
+print(command)
+
+if 'Thank' in command: #Thank you!!
+talk("You're welcome!")
+print(command)
+
+
+else:
+talk("Please say my name.")
+
+
+
+except:
+pass
+command = "No Mic"
+print(command)
+
+
+take_command()
+
+
+
